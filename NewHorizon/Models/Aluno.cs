@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewHorizon.Models;
 
-public partial class Aluno
+public class Aluno : Pessoa
 {
-    public int Id { get; set; }
-
-    public int IdPessoa { get; set; }
-
-    public int IdDisciplina { get; set; }
-
-    public virtual Disciplina IdDisciplinaNavigation { get; set; } = null!;
-
-    public virtual Pessoa IdPessoaNavigation { get; set; } = null!;
+    public int IdAluno { get; set; }
+    public ICollection<AlunoDisciplina> AlunoDisciplinas { get; set; }
 }
